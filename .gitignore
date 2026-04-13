@@ -1,4 +1,5 @@
 backup/
+output/
 .env
 __pycache__/
 *.py[cod]
