@@ -16,6 +16,7 @@ PROCESSED_JSON_DIR = OUTPUT_DIR / "processed_json"
 PPT_DIR = OUTPUT_DIR / "ppt"
 SIMILAR_QUESTIONS_DIR = OUTPUT_DIR / "similar_questions"
 PROMPT_PATH = BASE_DIR / "prompt.txt"
+AI_CHAT_PROMPT_PATH = BASE_DIR / "ai_chat_prompt.txt"
 
 for dir_path in [UPLOAD_DIR, OUTPUT_DIR, TEMP_DIR, RAW_JSON_DIR, PROCESSED_JSON_DIR, PPT_DIR, SIMILAR_QUESTIONS_DIR]:
     dir_path.mkdir(parents=True, exist_ok=True)

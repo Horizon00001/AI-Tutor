@@ -83,6 +83,124 @@ class PPTGenerator:
 
         return segments
 
+    def calculate_content_fit(
+        self,
+        question_text: str,
+        options: list,
+        analysis: str,
+        content_width: Inches,
+        available_height: Inches
+    ) -> dict:
+        """
+        计算内容是否适合幻灯片，返回推荐的字体大小和布局参数
+        """
+        # 初始字体大小
+        title_font_size = 22
+        option_font_size = 20
+        analysis_font_size = 18
+
+        # 检查是否包含 LaTeX
+        has_latex_question = self.contains_latex(question_text)
+        has_latex_analysis = self.contains_latex(analysis)
+
+        # 估算各部分内容高度
+        def estimate_total_height(q_font, o_font, a_font):
+            height = Inches(0.8)  # 标题高度
+
+            # 题目高度 - 考虑 LaTeX
+            if has_latex_question:
+                # LaTeX 公式通常需要更多空间
+                q_height = self.estimate_text_height(question_text, content_width, q_font)
+                # 有 LaTeX 时增加额外空间
+                q_height = q_height * 1.3
+                if options:
+                    q_height = min(q_height, Inches(2.0))  # 有选项时限制高度
+                else:
+                    q_height = min(q_height, Inches(4.0))  # 无选项时可以更高
+            else:
+                q_height = self.estimate_text_height(question_text, content_width, q_font)
+                if options:
+                    q_height = min(q_height, Inches(1.5))  # 有选项时限制高度
+                else:
+                    q_height = min(q_height, Inches(3.5))  # 无选项时可以更高
+            height += q_height + Inches(0.2)
+
+            # 选项高度
+            if options:
+                # 选项数量不同，高度也不同
+                num_options = len(options)
+                option_height = Inches(0.45 * ((num_options + 1) // 2))  # 每对选项0.45英寸
+                height += min(option_height, Inches(2.0))  # 最大2英寸
+
+            # 答案高度
+            height += Inches(0.4) + Inches(0.1)
+
+            # 解析高度 - 考虑 LaTeX
+            if has_latex_analysis:
+                # LaTeX 公式需要更多空间
+                a_height = self.estimate_text_height('【解析】 ' + analysis, content_width, a_font)
+                a_height = a_height * 1.3  # 增加额外空间
+                height += min(a_height, Inches(2.5))  # 最大2.5英寸
+            else:
+                a_height = self.estimate_text_height('【解析】 ' + analysis, content_width, a_font)
+                height += min(a_height, Inches(2.0))  # 最大2英寸
+
+            return height
+
+        # 检查是否需要缩小字体
+        total_height = estimate_total_height(title_font_size, option_font_size, analysis_font_size)
+
+        # 如果内容超出，逐步缩小字体
+        min_title_font = 12
+        min_analysis_font = 10
+        
+        while total_height > available_height and (
+            title_font_size > min_title_font or 
+            analysis_font_size > min_analysis_font
+        ):
+            # 优先缩小解析字体
+            if analysis_font_size > min_analysis_font:
+                analysis_font_size -= 1
+            # 然后缩小标题字体
+            elif title_font_size > min_title_font:
+                title_font_size -= 1
+                option_font_size = max(14, title_font_size - 2)
+
+            total_height = estimate_total_height(title_font_size, option_font_size, analysis_font_size)
+
+        return {
+            'title_font_size': title_font_size,
+            'option_font_size': option_font_size,
+            'analysis_font_size': analysis_font_size,
+            'fits': total_height <= available_height,
+            'estimated_height': total_height,
+            'has_latex_question': has_latex_question,
+            'has_latex_analysis': has_latex_analysis
+        }
+
+    def estimate_text_height(self, text: str, width: Inches, font_size: int) -> Inches:
+        """
+        估算文本所需的高度
+        基于字符数和字体大小进行估算
+        """
+        if not text:
+            return Inches(0.3)
+
+        # 估算每行可容纳的字符数（基于字体大小和宽度）
+        avg_char_width = font_size * 0.015  # 英寸/字符
+        chars_per_line = int(width / Inches(avg_char_width))
+        chars_per_line = max(chars_per_line, 20)  # 最少每行20个字符
+
+        # 计算需要的行数
+        text_length = len(text)
+        num_lines = max(1, (text_length + chars_per_line - 1) // chars_per_line)
+
+        # 每行高度（根据字体大小）
+        line_height = font_size * 0.025  # 英寸
+        total_height = num_lines * line_height + 0.1  # 添加一些padding
+
+        return Inches(total_height)
+
     def add_mixed_content_to_slide(
         self,
         slide,
@@ -103,21 +221,27 @@ class PPTGenerator:
         from PIL import Image as PILImage
 
         current_y = y
-        line_height = Inches(0.35)
+        # 根据字体大小自适应行高
+        line_height = Inches(font_size * 0.035)
         # 根据字体大小自适应公式图片高度
-        # 基准：20pt 字体对应 0.5 英寸高度，按比例缩放
         base_font_size = 20
         base_img_height = Inches(0.5)
-        max_img_height = base_img_height * (font_size / base_font_size) * 1.2  # 1.2 倍系数确保公式不会太小
-        max_img_width = width  # 图片最大宽度不超过文本区域
+        max_img_height = base_img_height * (font_size / base_font_size) * 1.2
+        max_img_width = width
 
         for seg_type, seg_content in segments:
             if seg_type == 'text':
                 # 清理 LaTeX 字符映射
                 clean_text = self.clean_latex(seg_content)
 
+                if not clean_text.strip():
+                    continue
+
+                # 估算文本高度
+                est_height = self.estimate_text_height(clean_text, width, font_size)
+
                 # 添加文本框
-                text_box = slide.shapes.add_textbox(x, current_y, width, Inches(0.5))
+                text_box = slide.shapes.add_textbox(x, current_y, width, est_height)
                 tf = text_box.text_frame
                 tf.word_wrap = True
                 p = tf.paragraphs[0]
@@ -127,7 +251,7 @@ class PPTGenerator:
                 p.font.name = 'Microsoft YaHei'
                 p.alignment = PP_ALIGN.LEFT
 
-                current_y += line_height
+                current_y += est_height + Inches(0.05)
 
             else:  # latex
                 # 渲染 LaTeX 为图片
@@ -140,7 +264,7 @@ class PPTGenerator:
                 # 计算缩放后的尺寸（保持宽高比）
                 aspect_ratio = img_w / img_h
                 # 根据字体大小计算合适的显示宽度
-                display_width = min(max_img_width, Inches(6.0))  # 最大 6 英寸
+                display_width = min(max_img_width, Inches(6.0))
                 display_height = display_width / aspect_ratio
 
                 # 如果计算的高度超过最大高度，则按高度缩放
@@ -210,15 +334,12 @@ class PPTGenerator:
         slide_layout = prs.slide_layouts[6]
         slide = prs.slides.add_slide(slide_layout)
 
-        # 标题
-        title_box = slide.shapes.add_textbox(Inches(0), Inches(0.2), Inches(13.333), Inches(0.8))
-        p = title_box.text_frame.paragraphs[0]
-        p.text = f"第 {question_num} 题"
-        p.font.size = Pt(28)
-        p.font.bold = True
-        p.font.name = 'Microsoft YaHei'
-        p.font.color.rgb = RGBColor(0, 112, 192)
-        p.alignment = PP_ALIGN.CENTER
+        # 幻灯片尺寸
+        slide_width = prs.slide_width
+        slide_height = prs.slide_height
+        content_width = slide_width - 2 * Inches(1.0)  # 内容区域宽度
+        max_content_y = slide_height - Inches(0.5)  # 底部边距
+        available_height = max_content_y - Inches(1.2)  # 可用高度（从题目开始）
 
         # 解析选项
         options = self.parse_options(content)
@@ -229,31 +350,69 @@ class PPTGenerator:
         else:
             question_text = content
 
-        # 检查是否包含 LaTeX
-        if self.contains_latex(question_text):
+        # 计算最佳字体大小
+        fit_params = self.calculate_content_fit(
+            question_text, options, analysis,
+            content_width, available_height
+        )
+
+        q_font_size = fit_params['title_font_size']
+        o_font_size = fit_params['option_font_size']
+        a_font_size = fit_params['analysis_font_size']
+        has_latex_question = fit_params['has_latex_question']
+        has_latex_analysis = fit_params['has_latex_analysis']
+
+        if not fit_params['fits']:
+            print(f"警告：第 {question_num} 题内容较长，已自动缩小字体至 {q_font_size}pt")
+
+        # 标题
+        title_box = slide.shapes.add_textbox(Inches(0), Inches(0.2), slide_width, Inches(0.8))
+        p = title_box.text_frame.paragraphs[0]
+        p.text = f"第 {question_num} 题"
+        p.font.size = Pt(28)
+        p.font.bold = True
+        p.font.name = 'Microsoft YaHei'
+        p.font.color.rgb = RGBColor(0, 112, 192)
+        p.alignment = PP_ALIGN.CENTER
+
+        current_y = Inches(1.2)
+
+        # 题目内容 - 考虑 LaTeX
+        if has_latex_question:
             # 使用混合内容渲染
             segments = self.parse_latex_segments(question_text)
-            self.add_mixed_content_to_slide(
+            current_y = self.add_mixed_content_to_slide(
                 slide, segments,
-                x=Inches(1.0), y=Inches(1.2),
-                width=Inches(11.333), height=Inches(1.5),
-                font_size=22, font_bold=True
+                x=Inches(1.0), y=current_y,
+                width=content_width, height=Inches(4.0),  # 更大的高度限制
+                font_size=q_font_size, font_bold=True
             )
         else:
-            # 普通文本
-            q_height = Inches(1.5) if options else Inches(4.0)
-            q_box = slide.shapes.add_textbox(Inches(1.0), Inches(1.2), Inches(11.333), q_height)
+            # 普通文本 - 估算高度
+            q_height = self.estimate_text_height(question_text, content_width, q_font_size)
+            if options:
+                q_height = min(q_height, Inches(1.5))  # 有选项时限制高度
+            else:
+                q_height = min(q_height, Inches(3.5))  # 无选项时可以更高
+
+            q_box = slide.shapes.add_textbox(Inches(1.0), current_y, content_width, q_height)
             q_box.text_frame.word_wrap = True
             p = q_box.text_frame.paragraphs[0]
             self.add_math_text(p, question_text)
-            p.font.size = Pt(22)
+            p.font.size = Pt(q_font_size)
             p.font.bold = True
             p.alignment = PP_ALIGN.LEFT
             p.space_after = Pt(14)
 
+            current_y += q_height + Inches(0.2)
+
         # 选项（如果存在）
         if options:
-            o_box = slide.shapes.add_textbox(Inches(1.5), Inches(2.6), Inches(10.333), Inches(1.8))
+            option_y = current_y + Inches(0.1)
+            # 根据选项数量调整高度
+            num_options = len(options)
+            option_height = Inches(0.45 * ((num_options + 1) // 2))
+            o_box = slide.shapes.add_textbox(Inches(1.5), option_y, content_width - Inches(0.5), option_height)
             o_box.text_frame.word_wrap = True
 
             for i in range(0, len(options), 2):
@@ -278,13 +437,24 @@ class PPTGenerator:
                     self.add_math_text(p, f"{opt2_letter}) {opt2_text}")
 
                 for run in p.runs:
-                    run.font.size = Pt(20)
+                    run.font.size = Pt(o_font_size)
 
-        # 答案和解析区域
-        a_y_pos = Inches(4.6) if options else Inches(4.2)
+            current_y = option_y + option_height + Inches(0.1)
+
+        # 计算答案和解析区域的位置
+        min_answer_y = Inches(4.0)
+        a_y_pos = max(current_y + Inches(0.2), min_answer_y)
+
+        # 确保答案区域不会超出边界
+        remaining_space = max_content_y - a_y_pos
+        if remaining_space < Inches(1.0):
+            # 空间严重不足，强制调整位置
+            a_y_pos = max_content_y - Inches(1.5)
+            print(f"警告：第 {question_num} 题解析区域空间不足，已调整位置")
 
         # 答案
-        answer_box = slide.shapes.add_textbox(Inches(1.0), a_y_pos, Inches(11.333), Inches(0.5))
+        answer_height = Inches(0.4)
+        answer_box = slide.shapes.add_textbox(Inches(1.0), a_y_pos, content_width, answer_height)
         answer_box.name = "AnimatedAnswerShape"
         ap = answer_box.text_frame.paragraphs[0]
         ap.text = f"【正确答案】 {answer}"
@@ -294,32 +464,46 @@ class PPTGenerator:
         ap.alignment = PP_ALIGN.LEFT
 
         # 解析
-        analysis_y = a_y_pos + Inches(0.5)
+        analysis_y = a_y_pos + answer_height + Inches(0.1)
         analysis_segments = self.parse_latex_segments(analysis)
 
-        if self.contains_latex(analysis):
+        # 计算解析区域可用高度
+        analysis_available_height = max_content_y - analysis_y
+
+        # 确保解析区域有足够空间
+        if analysis_available_height < Inches(0.5):
+            # 空间严重不足，再次调整
+            analysis_y = max_content_y - Inches(1.0)
+            analysis_available_height = Inches(0.9)
+
+        if has_latex_analysis:
+            # LaTeX 解析需要更多空间
             self.add_mixed_content_to_slide(
                 slide, [('text', '【解析】 ')] + analysis_segments,
                 x=Inches(1.0), y=analysis_y,
-                width=Inches(11.333), height=Inches(1.5),
-                font_size=18, font_bold=True
+                width=content_width, height=analysis_available_height,
+                font_size=a_font_size, font_bold=True
             )
         else:
-            analysis_box = slide.shapes.add_textbox(Inches(1.0), analysis_y, Inches(11.333), Inches(2.0))
+            # 估算解析文本高度
+            analysis_height = self.estimate_text_height('【解析】 ' + analysis, content_width, a_font_size)
+            analysis_height = min(analysis_height, analysis_available_height)
+
+            analysis_box = slide.shapes.add_textbox(Inches(1.0), analysis_y, content_width, analysis_height)
             analysis_box.text_frame.word_wrap = True
             p2 = analysis_box.text_frame.paragraphs[0]
 
             run = p2.add_run()
             run.text = "【解析】 "
             run.font.bold = True
-            run.font.size = Pt(18)
+            run.font.size = Pt(a_font_size)
             run.font.color.rgb = RGBColor(100, 100, 100)
 
             self.add_math_text(p2, analysis)
 
             for run in p2.runs:
                 if not run.font.size:
-                    run.font.size = Pt(18)
+                    run.font.size = Pt(a_font_size)
 
     def add_animations_via_com(self, pptx_path: Path):
         if not HAS_WIN32COM:

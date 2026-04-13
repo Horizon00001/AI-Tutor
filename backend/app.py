@@ -1,10 +1,10 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from api.routes import files, mineru, deepseek, ppt, questions, pipeline, tasks, download, health, auth, exams, collections
+from api.routes import files, mineru, deepseek, ppt, questions, pipeline, tasks, download, health, auth, exams, collections, ai_chat
 
 app = FastAPI(
-    title="试卷讲解Demo API",
+    title="AI教学辅助",
     description="FastAPI后端，提供试卷处理、PPT生成、相似题生成等功能",
     version="1.0.0"
 )
@@ -29,11 +29,12 @@ app.include_router(health.router, prefix="/api/v1")
 app.include_router(auth.router, prefix="/api/v1")
 app.include_router(exams.router, prefix="/api/v1")
 app.include_router(collections.router, prefix="/api/v1")
+app.include_router(ai_chat.router, prefix="/api/v1")
 
 @app.get("/")
 async def root():
     return {
-        "message": "试卷讲解Demo API",
+        "message": "AI教学辅助",
         "version": "1.0.0",
         "docs": "/docs"
     }

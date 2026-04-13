@@ -1,0 +1,14 @@
+backup/
+.env
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+backend/output/
+backend/temp/
+backend/uploads/
+backend/data/*.db
+.claude/
+.trae/

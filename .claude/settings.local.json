@@ -4,7 +4,11 @@
       "Bash(python -c \"from services.latex_renderer import latex_renderer; from services.ppt_generator import ppt_generator; print\\('Import OK'\\)\")",
       "Bash(rm:*)",
       "Bash(pip install:*)",
-      "Bash(python -c ':*)"
+      "Bash(python -c ':*)",
+      "Bash(python -c \"import uvicorn; uvicorn.run\\('app:app', host='0.0.0.0', port=8080\\)\")",
+      "Bash(curl -s http://localhost:8080/)",
+      "Bash(curl:*)",
+      "Bash(python -c \"import sys,json; data=json.load\\(sys.stdin\\); [print\\(f'{method.upper\\(\\)} {path}'\\) for path, methods in data['paths'].items\\(\\) for method in methods.keys\\(\\)]\")"
     ]
   }
 }

@@ -237,3 +237,18 @@ class BatchOperationResponse(BaseModel):
     success: bool
     affected_count: int
     error: Optional[str] = None
+
+
+class ChatMessage(BaseModel):
+    role: Literal["system", "user", "assistant"]
+    content: str
+
+
+class AIChatRequest(BaseModel):
+    messages: List[ChatMessage]
+    model: Optional[str] = "deepseek-chat"
+
+
+class AIChatResponse(BaseModel):
+    answer: str
+    usage: Optional[dict] = None
