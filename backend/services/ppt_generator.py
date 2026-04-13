@@ -6,7 +6,7 @@ from typing import Literal
 from pptx import Presentation
 from pptx.util import Inches, Pt, Emu
 from pptx.dml.color import RGBColor
-from pptx.enum.text import PP_ALIGN
+from pptx.enum.text import PP_ALIGN, MSO_AUTO_SIZE
 from pptx.oxml.ns import qn
 from lxml import etree
 
@@ -244,6 +244,7 @@ class PPTGenerator:
                 text_box = slide.shapes.add_textbox(x, current_y, width, est_height)
                 tf = text_box.text_frame
                 tf.word_wrap = True
+                tf.auto_size = MSO_AUTO_SIZE.TEXT_TO_FIT_SHAPE
                 p = tf.paragraphs[0]
                 p.text = clean_text
                 p.font.size = Pt(font_size)
@@ -294,7 +295,7 @@ class PPTGenerator:
             if i % 2 == 1:
                 # 如果包含复杂 LaTeX，使用清理后的简单版本
                 run.text = self.clean_latex(part)
-                run.font.name = 'Cambria Math'
+                run.font.name = 'Times New Roman'
                 run.font.italic = True
             else:
                 run.text = self.clean_latex(part)
@@ -397,6 +398,7 @@ class PPTGenerator:
 
             q_box = slide.shapes.add_textbox(Inches(1.0), current_y, content_width, q_height)
             q_box.text_frame.word_wrap = True
+            q_box.text_frame.auto_size = MSO_AUTO_SIZE.TEXT_TO_FIT_SHAPE
             p = q_box.text_frame.paragraphs[0]
             self.add_math_text(p, question_text)
             p.font.size = Pt(q_font_size)
@@ -414,6 +416,7 @@ class PPTGenerator:
             option_height = Inches(0.45 * ((num_options + 1) // 2))
             o_box = slide.shapes.add_textbox(Inches(1.5), option_y, content_width - Inches(0.5), option_height)
             o_box.text_frame.word_wrap = True
+            o_box.text_frame.auto_size = MSO_AUTO_SIZE.TEXT_TO_FIT_SHAPE
 
             for i in range(0, len(options), 2):
                 if i == 0:
@@ -456,6 +459,7 @@ class PPTGenerator:
         answer_height = Inches(0.4)
         answer_box = slide.shapes.add_textbox(Inches(1.0), a_y_pos, content_width, answer_height)
         answer_box.name = "AnimatedAnswerShape"
+        answer_box.text_frame.auto_size = MSO_AUTO_SIZE.TEXT_TO_FIT_SHAPE
         ap = answer_box.text_frame.paragraphs[0]
         ap.text = f"【正确答案】 {answer}"
         ap.font.size = Pt(20)
@@ -491,6 +495,7 @@ class PPTGenerator:
 
             analysis_box = slide.shapes.add_textbox(Inches(1.0), analysis_y, content_width, analysis_height)
             analysis_box.text_frame.word_wrap = True
+            analysis_box.text_frame.auto_size = MSO_AUTO_SIZE.TEXT_TO_FIT_SHAPE
             p2 = analysis_box.text_frame.paragraphs[0]
 
             run = p2.add_run()
