@@ -4,8 +4,8 @@ from pathlib import Path
 from typing import Optional, List, Dict, Any
 from openai import OpenAI
 from pydantic import BaseModel, Field
-from .task_manager import task_manager, TaskType, TaskStatus
-from utils.config import API_KEY, API_URL, PROCESSED_JSON_DIR
+from services.task_manager import task_manager, TaskType, TaskStatus
+from utils.config import API_KEY, API_URL, PROCESSED_JSON_DIR, PROMPT_PATH
 from utils.storage import storage
 
 class Question(BaseModel):
@@ -18,7 +18,7 @@ class Question(BaseModel):
 class DeepSeekService:
     def __init__(self):
         self.client = OpenAI(api_key=API_KEY, base_url=API_URL)
-        self.prompt_path = Path(__file__).parent.parent / "prompt.txt"
+        self.prompt_path = PROMPT_PATH
 
     async def fix_json(self, json_file_path: Path, task_id: str) -> Optional[Path]:
         task = task_manager.get_task(task_id)

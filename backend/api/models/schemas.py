@@ -118,6 +118,7 @@ class PipelineStatusResponse(BaseModel):
     pipeline_id: str
     stages: dict
     all_completed: bool
+    exam_id: Optional[str] = None
 
 class TaskStatusResponse(BaseModel):
     task_id: str

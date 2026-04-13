@@ -59,7 +59,7 @@ async def get_fix_result(task_id: str):
 
     json_content = None
     if task.result_file:
-        json_content = storage.read_json(Path(task.result_file))
+        json_content = storage.load_json(Path(task.result_file))
 
     return DeepSeekResultResponse(
         task_id=task_id,

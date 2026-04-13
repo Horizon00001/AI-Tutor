@@ -31,8 +31,17 @@ def init_question_table():
 def create_question(question_id: str, exam_id: str, user_id: str, title: str, content: str,
                     answer: str = None, analysis: str = None, options: str = None,
                     question_index: int = 0) -> bool:
+    """创建题目，如果 exam_id 不存在则拒绝插入"""
     conn = get_db_connection()
     cursor = conn.cursor()
+    
+    # 验证 exam_id 是否存在
+    cursor.execute("SELECT COUNT(*) FROM exams WHERE exam_id = ?", (exam_id,))
+    if cursor.fetchone()[0] == 0:
+        conn.close()
+        print(f"错误: 无法创建题目 - exam_id {exam_id} 不存在于 exams 表")
+        return False
+    
     try:
         now = datetime.now().isoformat()
         cursor.execute(

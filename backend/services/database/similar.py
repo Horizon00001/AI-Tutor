@@ -31,8 +31,17 @@ def init_similar_table():
 def create_similar_question(similar_id: str, source_question_id: str, exam_id: str, user_id: str,
                            title: str, content: str, answer: str = None, analysis: str = None,
                            difficulty: str = None) -> bool:
+    """创建相似题，如果 exam_id 不存在则拒绝插入"""
     conn = get_db_connection()
     cursor = conn.cursor()
+    
+    # 验证 exam_id 是否存在
+    cursor.execute("SELECT COUNT(*) FROM exams WHERE exam_id = ?", (exam_id,))
+    if cursor.fetchone()[0] == 0:
+        conn.close()
+        print(f"错误: 无法创建相似题 - exam_id {exam_id} 不存在于 exams 表")
+        return False
+    
     try:
         cursor.execute(
             "INSERT INTO similar_questions (similar_id, source_question_id, exam_id, user_id, title, content, answer, analysis, difficulty, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",

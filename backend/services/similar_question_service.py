@@ -4,8 +4,8 @@ from datetime import datetime
 from pathlib import Path
 from typing import Optional, List, Dict, Any
 from openai import OpenAI
-from .task_manager import task_manager, TaskType, TaskStatus
-from .exam_service import save_similar_questions
+from services.task_manager import task_manager, TaskType, TaskStatus
+from services.exam_service import save_similar_questions
 from utils.config import API_KEY, API_URL
 from utils.storage import storage
 

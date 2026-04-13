@@ -1,6 +1,7 @@
 import aiofiles
+import uuid
 from pathlib import Path
-from typing import Optional
+from typing import Optional, Tuple
 from fastapi import UploadFile
 from utils.config import ALLOWED_EXTENSIONS, MAX_FILE_SIZE, UPLOAD_DIR
 
@@ -21,6 +22,22 @@ class FileHandler:
                 return f"{size:.2f} {unit}"
             size /= 1024
         return f"{size:.2f} TB"
+
+    @staticmethod
+    def validate_file(filename: str, content: bytes) -> Tuple[bool, str]:
+        """验证文件是否合法"""
+        if not filename:
+            return False, "文件名为空"
+        if not FileHandler.is_allowed_file(filename):
+            return False, f"不支持的文件类型，仅支持: {', '.join(ALLOWED_EXTENSIONS)}"
+        if len(content) > MAX_FILE_SIZE:
+            return False, f"文件大小超过限制 ({MAX_FILE_SIZE // 1024 // 1024}MB)"
+        return True, ""
+
+    @staticmethod
+    def generate_file_id() -> str:
+        """生成唯一文件ID"""
+        return str(uuid.uuid4())
 
     @staticmethod
     async def save_upload_file(file: UploadFile, dest_path: Path) -> bool:

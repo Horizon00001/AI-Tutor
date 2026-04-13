@@ -2,9 +2,11 @@ import os
 from pathlib import Path
 from dotenv import load_dotenv
 
-load_dotenv()
+# 从项目根目录加载 .env 文件
+PROJECT_ROOT = Path(__file__).parent.parent.parent
+load_dotenv(PROJECT_ROOT / ".env")
 
-BASE_DIR = Path(__file__).parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent
 UPLOAD_DIR = BASE_DIR / "uploads"
 OUTPUT_DIR = BASE_DIR / "output"
 TEMP_DIR = BASE_DIR / "temp"
@@ -13,6 +15,7 @@ RAW_JSON_DIR = OUTPUT_DIR / "raw_json"
 PROCESSED_JSON_DIR = OUTPUT_DIR / "processed_json"
 PPT_DIR = OUTPUT_DIR / "ppt"
 SIMILAR_QUESTIONS_DIR = OUTPUT_DIR / "similar_questions"
+PROMPT_PATH = BASE_DIR / "prompt.txt"
 
 for dir_path in [UPLOAD_DIR, OUTPUT_DIR, TEMP_DIR, RAW_JSON_DIR, PROCESSED_JSON_DIR, PPT_DIR, SIMILAR_QUESTIONS_DIR]:
     dir_path.mkdir(parents=True, exist_ok=True)

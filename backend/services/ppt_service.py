@@ -2,8 +2,8 @@ import json
 from pathlib import Path
 from typing import Optional
 
-from .task_manager import task_manager, TaskType, TaskStatus
-from .ppt_generator import ppt_generator
+from services.task_manager import task_manager, TaskType, TaskStatus
+from services.ppt_generator import ppt_generator
 from utils.config import PPT_DIR
 
 

@@ -1,3 +1,4 @@
+import asyncio
 from fastapi import APIRouter, BackgroundTasks, UploadFile, File, Form, HTTPException
 from datetime import datetime
 from pathlib import Path
@@ -115,7 +116,8 @@ async def full_pipeline(
         except Exception as e:
             print(f"Pipeline error: {e}")
 
-    background_tasks.add_task(run_pipeline)
+    # 使用 asyncio.create_task 来运行异步函数
+    asyncio.create_task(run_pipeline())
 
     return PipelineFullResponse(
         pipeline_id=pipeline_id,
@@ -139,7 +141,8 @@ async def get_pipeline_status(pipeline_id: str):
     return PipelineStatusResponse(
         pipeline_id=pipeline_id,
         stages=stages,
-        all_completed=all_completed
+        all_completed=all_completed,
+        exam_id=pipeline.get("exam_id")
     )
 
 @router.post("/upload-and-extract")

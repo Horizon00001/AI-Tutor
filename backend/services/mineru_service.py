@@ -4,7 +4,7 @@ import zipfile
 from pathlib import Path
 from typing import Optional, Dict, Any
 import requests
-from .task_manager import task_manager, TaskType, TaskStatus
+from services.task_manager import task_manager, TaskType, TaskStatus
 from utils.config import TOKEN, RAW_JSON_DIR
 from utils.storage import storage
 
