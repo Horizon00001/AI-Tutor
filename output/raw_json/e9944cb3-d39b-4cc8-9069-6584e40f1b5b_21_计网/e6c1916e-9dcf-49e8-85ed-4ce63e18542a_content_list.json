@@ -1,0 +1,1604 @@
+[
+    {
+        "type": "text",
+        "text": "选择题：",
+        "text_level": 1,
+        "bbox": [
+            147,
+            86,
+            215,
+            100
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "text",
+        "text": "1.【单选题】 (2分)",
+        "text_level": 1,
+        "bbox": [
+            159,
+            137,
+            280,
+            149
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "text",
+        "text": "关于网络应用（network application）和应用层协议（network application-layer protocol），下列说法正确的是（）。",
+        "bbox": [
+            171,
+            161,
+            825,
+            174
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "list",
+        "sub_type": "text",
+        "list_items": [
+            "○A.应用层协议的性能对网络应用的性能没有影响。",
+            "B. 应用层协议负责数据传输。",
+            "C. 网络应用就是应用层协议，二者没有区别。",
+            "D. 应用层协议的设计包括用户界面的设计。"
+        ],
+        "bbox": [
+            171,
+            186,
+            460,
+            283
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "text",
+        "text": "回答正确，得分2",
+        "bbox": [
+            198,
+            309,
+            334,
+            326
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "text",
+        "text": "参考答案 B",
+        "bbox": [
+            228,
+            339,
+            294,
+            349
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "text",
+        "text": "2.【单选题】 (2分)",
+        "text_level": 1,
+        "bbox": [
+            166,
+            370,
+            300,
+            384
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "text",
+        "text": "关于网络延迟，下列说法正确的是（）",
+        "bbox": [
+            181,
+            397,
+            413,
+            410
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "list",
+        "sub_type": "text",
+        "list_items": [
+            "○A.排队延迟（queueing delay）和网络中业务量的变化无关。",
+            "B. 传输延迟 (transmission delay) 和两个节点的物理距离有关。距离越大, 传输延迟越大。",
+            "C. 传播延迟 (propagation delay) 和链路的带宽有关。带宽越大, 传播延迟越小。",
+            "D. 节点处理延迟 (nodal processing delay) 通常很短, 可以忽略不计。"
+        ],
+        "bbox": [
+            181,
+            425,
+            751,
+            533
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "image",
+        "img_path": "images/1548fb813471191b12ed54034262d80998df5c2daa35b47caa544139950c6146.jpg",
+        "image_caption": [],
+        "image_footnote": [],
+        "bbox": [
+            208,
+            561,
+            235,
+            578
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "text",
+        "text": "回答正确，得分2",
+        "bbox": [
+            243,
+            562,
+            357,
+            576
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "text",
+        "text": "参考答案 D",
+        "bbox": [
+            243,
+            592,
+            315,
+            603
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "text",
+        "text": "3.【单选题】 (2分)",
+        "text_level": 1,
+        "bbox": [
+            178,
+            646,
+            317,
+            659
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "text",
+        "text": "关于数据包交换（packet switching），下列说法正确的是（）",
+        "bbox": [
+            193,
+            674,
+            589,
+            688
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "list",
+        "sub_type": "text",
+        "list_items": [
+            "A. 传输过程中没有丢包和乱序。",
+            "B. 发送数据前要建立连接",
+            "C. 中间节点不需要要存储-转发（store-forward）数据包",
+            "D. 每个数据包独立寻路。"
+        ],
+        "bbox": [
+            194,
+            703,
+            571,
+            813
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "image",
+        "img_path": "images/6413ee4bc329cf308ac54dc4f08a7f035dc6fb059f1104ef09d89af09ba66186.jpg",
+        "image_caption": [],
+        "image_footnote": [],
+        "bbox": [
+            223,
+            845,
+            250,
+            863
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "text",
+        "text": "回答正确，得分2",
+        "bbox": [
+            258,
+            846,
+            376,
+            859
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "text",
+        "text": "参考答案 D",
+        "bbox": [
+            258,
+            877,
+            332,
+            889
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "text",
+        "text": "4.【单选题】 (2分)",
+        "bbox": [
+            166,
+            97,
+            262,
+            106
+        ],
+        "page_idx": 1
+    },
+    {
+        "type": "text",
+        "text": "节点A和B间有条微波无线链路相连。A和B相距100 Km，带宽为30 Kbps，数据包长度为1000 bits。需要在A和B间实现可靠数据传输，下列说法正确的是（）",
+        "bbox": [
+            176,
+            115,
+            813,
+            138
+        ],
+        "page_idx": 1
+    },
+    {
+        "type": "list",
+        "sub_type": "text",
+        "list_items": [
+            "A. 使用停-等（stop-and-wait）可靠传输协议就能获得很高的链路利用率。",
+            "B.不需要采用任何可靠传输协议就能实现可靠传输。",
+            "C. 使用FEC（Forward Error Correction）不能改善这条链路的可靠数据传输性能。",
+            "D. 只有使用并行的（pipelined）可靠传输协议才能获得较高的链路利用率。"
+        ],
+        "bbox": [
+            178,
+            147,
+            534,
+            223
+        ],
+        "page_idx": 1
+    },
+    {
+        "type": "image",
+        "img_path": "images/3e308b35066ed5fc0ecfad04f4c00476158915e4d800edfb9985d19d0165458b.jpg",
+        "image_caption": [],
+        "image_footnote": [],
+        "bbox": [
+            196,
+            243,
+            218,
+            255
+        ],
+        "page_idx": 1
+    },
+    {
+        "type": "text",
+        "text": "回答错误，得分0",
+        "bbox": [
+            223,
+            243,
+            300,
+            252
+        ],
+        "page_idx": 1
+    },
+    {
+        "type": "text",
+        "text": "参考答案 A",
+        "bbox": [
+            221,
+            264,
+            272,
+            271
+        ],
+        "page_idx": 1
+    },
+    {
+        "type": "image",
+        "img_path": "images/118c7bee7299d743bb063057eba7630fa51e185ae6f5bede3034a6e13b33675a.jpg",
+        "image_caption": [],
+        "image_footnote": [],
+        "bbox": [
+            826,
+            243,
+            850,
+            264
+        ],
+        "page_idx": 1
+    },
+    {
+        "type": "text",
+        "text": "5.【单选题】 (2分)",
+        "bbox": [
+            181,
+            296,
+            290,
+            308
+        ],
+        "page_idx": 1
+    },
+    {
+        "type": "text",
+        "text": "关于HTTP，下列说法正确的是（）。",
+        "bbox": [
+            193,
+            318,
+            376,
+            328
+        ],
+        "page_idx": 1
+    },
+    {
+        "type": "list",
+        "sub_type": "text",
+        "list_items": [
+            "A. HTTP 的数据包头部是以二进制形式存储的，很难读懂内容。",
+            "B. 使用UDP协议。",
+            "C. HTTP 服务器采用无状态 (stateless) 管理方式, 不保存客户端的任何状态信息。为了能记录用户状态, 需要使用cookies。",
+            "D. HTTP的web proxy总是能够降低响应时间，提升用户体验。"
+        ],
+        "bbox": [
+            191,
+            342,
+            714,
+            441
+        ],
+        "page_idx": 1
+    },
+    {
+        "type": "image",
+        "img_path": "images/f6b35ddf858d6e6961089b2f366c006ca8b73868e5cd51d4f3361bbe9d6d74ca.jpg",
+        "image_caption": [],
+        "image_footnote": [],
+        "bbox": [
+            216,
+            465,
+            238,
+            479
+        ],
+        "page_idx": 1
+    },
+    {
+        "type": "text",
+        "text": "回答正确，得分2",
+        "bbox": [
+            243,
+            466,
+            337,
+            477
+        ],
+        "page_idx": 1
+    },
+    {
+        "type": "text",
+        "text": "参考答案 C",
+        "bbox": [
+            243,
+            490,
+            302,
+            500
+        ],
+        "page_idx": 1
+    },
+    {
+        "type": "text",
+        "text": "6.【单选题】 (2分)",
+        "bbox": [
+            161,
+            517,
+            270,
+            529
+        ],
+        "page_idx": 1
+    },
+    {
+        "type": "text",
+        "text": "关于可靠数据传输，下列说法正确的是（）",
+        "bbox": [
+            173,
+            539,
+            391,
+            551
+        ],
+        "page_idx": 1
+    },
+    {
+        "type": "list",
+        "sub_type": "text",
+        "list_items": [
+            "○A.SR协议中，发送端窗口通常和接收端窗口大小相等，并且大于等于数据包最大序列号的一半。",
+            "B. SR (Selective Repeat) 和GBN都采用滑动窗口 (sliding window) 机制实现对发送端/接收端缓冲区的管理。",
+            "C. 停-等（stop-and-wait）协议的链路利用率一定低于GBN（Go-Back-N）。",
+            "D. 在停-等协议中，数据包（data）丢失引发的超时重传会导致接收端收到重复的数据包。"
+        ],
+        "bbox": [
+            173,
+            562,
+            685,
+            660
+        ],
+        "page_idx": 1
+    },
+    {
+        "type": "image",
+        "img_path": "images/8c6ae0c04e6cdc5941aff35448d373c6bfad62df2d709818e86587dfc58bb2ab.jpg",
+        "image_caption": [],
+        "image_footnote": [],
+        "bbox": [
+            196,
+            682,
+            218,
+            698
+        ],
+        "page_idx": 1
+    },
+    {
+        "type": "text",
+        "text": "回答正确，得分2",
+        "bbox": [
+            223,
+            684,
+            315,
+            695
+        ],
+        "page_idx": 1
+    },
+    {
+        "type": "text",
+        "text": "参考答案 B",
+        "bbox": [
+            223,
+            707,
+            278,
+            718
+        ],
+        "page_idx": 1
+    },
+    {
+        "type": "text",
+        "text": "1.【单选题】 (2分)",
+        "bbox": [
+            194,
+            102,
+            317,
+            115
+        ],
+        "page_idx": 2
+    },
+    {
+        "type": "text",
+        "text": "下列哪些协议层是在操作系统的用户空间实现的？（）",
+        "bbox": [
+            206,
+            125,
+            512,
+            140
+        ],
+        "page_idx": 2
+    },
+    {
+        "type": "image",
+        "img_path": "images/c894ad9bc8de22a1cbe7139ec4ad558818942bd3d3f9bbbf88d23efe3f589929.jpg",
+        "image_caption": [],
+        "image_footnote": [],
+        "bbox": [
+            208,
+            153,
+            226,
+            163
+        ],
+        "page_idx": 2
+    },
+    {
+        "type": "list",
+        "sub_type": "text",
+        "list_items": [
+            "A. 应用层 ",
+            "B. 传输层 ",
+            "C. 网络层",
+            "D. 物理层",
+            "E. 数据链路层"
+        ],
+        "bbox": [
+            208,
+            153,
+            304,
+            283
+        ],
+        "page_idx": 2
+    },
+    {
+        "type": "image",
+        "img_path": "images/f7e529eb13b8edf8d3659dddc9eef320db8dfaf704a5c4d9767166a63b7b3f6d.jpg",
+        "image_caption": [],
+        "image_footnote": [],
+        "bbox": [
+            233,
+            309,
+            258,
+            327
+        ],
+        "page_idx": 2
+    },
+    {
+        "type": "text",
+        "text": "回答正确，得分2",
+        "bbox": [
+            265,
+            312,
+            369,
+            323
+        ],
+        "page_idx": 2
+    },
+    {
+        "type": "text",
+        "text": "参考答案 A",
+        "bbox": [
+            265,
+            339,
+            332,
+            349
+        ],
+        "page_idx": 2
+    },
+    {
+        "type": "text",
+        "text": "2.【单选题】 (2分)",
+        "bbox": [
+            171,
+            390,
+            275,
+            402
+        ],
+        "page_idx": 2
+    },
+    {
+        "type": "text",
+        "text": "关于网络层，下列说法正确的是（）",
+        "bbox": [
+            183,
+            410,
+            346,
+            423
+        ],
+        "page_idx": 2
+    },
+    {
+        "type": "list",
+        "sub_type": "text",
+        "list_items": [
+            "A. 路由器 (router) 和交换机 (switch) 都是网络层的互联设备。",
+            "B. 网络层的数据平面 (data plane) 负责转发 (forwarding), 控制平面 (control plane) 负责路由 (routing)。",
+            "C.IP协议维护转发表（forwardingtable）。",
+            "D. 不同物理介质 (physical media) 的网络如果要互联 (internetworking), 那么在网络层也可以使用不同的IP协议。"
+        ],
+        "bbox": [
+            183,
+            433,
+            675,
+            536
+        ],
+        "page_idx": 2
+    },
+    {
+        "type": "image",
+        "img_path": "images/f4855ba37cee9cca9d9adeaf65d1fc5d95440eed3c708c500432aab6948cc68f.jpg",
+        "image_caption": [],
+        "image_footnote": [],
+        "bbox": [
+            203,
+            558,
+            226,
+            574
+        ],
+        "page_idx": 2
+    },
+    {
+        "type": "text",
+        "text": "回答正确，得分2",
+        "bbox": [
+            233,
+            560,
+            319,
+            571
+        ],
+        "page_idx": 2
+    },
+    {
+        "type": "text",
+        "text": "参考答案 B",
+        "bbox": [
+            231,
+            581,
+            285,
+            592
+        ],
+        "page_idx": 2
+    },
+    {
+        "type": "text",
+        "text": "3.【单选题】 (2分)",
+        "bbox": [
+            174,
+            614,
+            290,
+            627
+        ],
+        "page_idx": 2
+    },
+    {
+        "type": "text",
+        "text": "关于路由算法,下列说法正确的是（）",
+        "bbox": [
+            186,
+            638,
+            381,
+            650
+        ],
+        "page_idx": 2
+    },
+    {
+        "type": "list",
+        "sub_type": "text",
+        "list_items": [
+            "○A. 路由算法负责为数据包从源节点到目的节点找到一条性能好的路径。因此必须知道全局的网络拓扑结构。",
+            "$\\bigcirc$ B. 跳数 (the number of hops) 不能做为路由算法的性能评价参数。",
+            "C. 路由算法的性能评价参数必须根据设计需求来确定。",
+            "D. 路由算法的性能对网络性能影响不大。"
+        ],
+        "bbox": [
+            186,
+            663,
+            742,
+            769
+        ],
+        "page_idx": 2
+    },
+    {
+        "type": "image",
+        "img_path": "images/36c67d7f7c0c46105ec393e55c227becbe326a889cfd4835dc8ecdbbbe0312b2.jpg",
+        "image_caption": [],
+        "image_footnote": [],
+        "bbox": [
+            211,
+            793,
+            235,
+            809
+        ],
+        "page_idx": 2
+    },
+    {
+        "type": "text",
+        "text": "回答正确，得分2",
+        "bbox": [
+            243,
+            794,
+            339,
+            807
+        ],
+        "page_idx": 2
+    },
+    {
+        "type": "text",
+        "text": "参考答案 C",
+        "bbox": [
+            240,
+            820,
+            304,
+            831
+        ],
+        "page_idx": 2
+    },
+    {
+        "type": "text",
+        "text": "4.【单选题】 (2分)",
+        "text_level": 1,
+        "bbox": [
+            205,
+            117,
+            332,
+            130
+        ],
+        "page_idx": 3
+    },
+    {
+        "type": "text",
+        "text": "关于TCP的流量控制（flow control），下列说法正确的是（）",
+        "bbox": [
+            218,
+            142,
+            574,
+            156
+        ],
+        "page_idx": 3
+    },
+    {
+        "type": "list",
+        "sub_type": "text",
+        "list_items": [
+            "$\\mathrm{O}$ A. 不能减少丢包的发生。",
+            "$\\mathrm{O}$ B.和网络传输速率有关。",
+            "C. 不能改变发送端的发送速率。",
+            "D. 为了解决TCP两端发送速率和接收速率不匹配的问题。"
+        ],
+        "bbox": [
+            220,
+            169,
+            552,
+            271
+        ],
+        "page_idx": 3
+    },
+    {
+        "type": "image",
+        "img_path": "images/6d0d40a25ace068b8fc7ce34e15df0219425c270382d9de98fa5eac832cb58fb.jpg",
+        "image_caption": [],
+        "image_footnote": [],
+        "bbox": [
+            247,
+            300,
+            272,
+            315
+        ],
+        "page_idx": 3
+    },
+    {
+        "type": "text",
+        "text": "回答正确，得分2",
+        "bbox": [
+            280,
+            301,
+            384,
+            313
+        ],
+        "page_idx": 3
+    },
+    {
+        "type": "text",
+        "text": "参考答案 D",
+        "bbox": [
+            278,
+            328,
+            346,
+            339
+        ],
+        "page_idx": 3
+    },
+    {
+        "type": "text",
+        "text": "大题：",
+        "text_level": 1,
+        "bbox": [
+            147,
+            363,
+            196,
+            378
+        ],
+        "page_idx": 3
+    },
+    {
+        "type": "text",
+        "text": "Chapter 6, P14. Consider three LANs interconnected by two routers, as shown in Figure 6.33. ",
+        "bbox": [
+            168,
+            391,
+            600,
+            402
+        ],
+        "page_idx": 3
+    },
+    {
+        "type": "text",
+        "text": "a Assign IP addresses to all of the interfaces. For Subnet 1 use addresses of the form 192.168.1.xxx; for Subnet 2 uses addresses of the form 192.168.2.xxx; and for Subnet 3 use addresses of the form 192.168.3.xxx. ",
+        "bbox": [
+            168,
+            403,
+            818,
+            425
+        ],
+        "page_idx": 3
+    },
+    {
+        "type": "text",
+        "text": "b Assign MAC addresses to all of the adapters. ",
+        "bbox": [
+            168,
+            427,
+            386,
+            437
+        ],
+        "page_idx": 3
+    },
+    {
+        "type": "text",
+        "text": "c Consider sending an IP datagram from Host E to Host B. Suppose all of the ARP tables are up to date. Enumerate all the steps, as done for the single-router example in Section 6.4.1. ",
+        "bbox": [
+            166,
+            439,
+            820,
+            461
+        ],
+        "page_idx": 3
+    },
+    {
+        "type": "text",
+        "text": "d Repeat (c), now assuming that the ARP table in the sending host is empty (and the other tables are up to date). ",
+        "bbox": [
+            168,
+            463,
+            690,
+            473
+        ],
+        "page_idx": 3
+    },
+    {
+        "type": "text",
+        "text": "a、与b如图",
+        "bbox": [
+            166,
+            494,
+            226,
+            503
+        ],
+        "page_idx": 3
+    },
+    {
+        "type": "list",
+        "sub_type": "text",
+        "list_items": [
+            "b、与a如图"
+        ],
+        "bbox": [
+            164,
+            505,
+            226,
+            515
+        ],
+        "page_idx": 3
+    },
+    {
+        "type": "image",
+        "img_path": "images/ebdf0feaf910df280f3f6893a4fbc593d6996c640c97cbbd1af667fb661c7a8e.jpg",
+        "image_caption": [],
+        "image_footnote": [],
+        "bbox": [
+            166,
+            516,
+            610,
+            638
+        ],
+        "page_idx": 3
+    },
+    {
+        "type": "list",
+        "sub_type": "text",
+        "list_items": [
+            "c、1.E产生数据包（packet），源IP地址为192.168.3.001，目的IP地址为192.168.1.003.2.E按目的IP地址192.168.1.003查看自己的转发表，确定数据包的下一跳节点是Router2接口192.168.3.002。把数据包下传到数据链路层。3.E运行ARP协议，从ARP表里查到Router2接口192.168.3.002所对应的MAC地址为88-88-88-88-88-88。4.E创建以太网数据帧（frame）：源MAC地址为77-77-77-77-77，目标MAC地址为88-88-88-88-88-88。5.E运行MAC协议，竞争到信道，发送该数据帧到物理层，由物理层把该数据包发送到Router2的接口192.168.3.002。6.Router2的数据链路层收到E发的数据帧，查看它的目标MAC地址是自己，就把数据帧头部解封装，然后传给网络层。7.Router2的网络层根据数据包的目的IP地址192.168.1.003查询自己的转发表，确定该数据包应该被发送到下一跳节点192.168.2.002。就把数据包从接口192.168.3.002转发到接口192.168.2.003把数据包下传到数据链路层。8.Router2的数据链路层运行ARP协议，查看ARP表，确定下一跳节点192.168.2.002的MAC地址为33-33-33-33-33-33。于是封装数据帧，源MAC地址填入55-55-55-55-55-55，目的MAC地址填入33-33-33-33-33-33。运行MAC协议，竞争到信道，把数据帧发送到物理层，由物理层发送到下一跳节点。9类似的，接下来数据包经过Router1进行转发，最终数据包由Router1交付至主机B。",
+            "d、如果E的ARP表为空，则E首先需要运行ARP协议查询192.168.3.002的MAC地址。ARP查询时，E发出一个目标MAC地址为广播地址的ARP查询数据包，Router2收到查询包时会向E发送一个ARP响应数据包，ARP响应数据包的目标MAC地址为77-77-77-77-77、源MAC地址为88-88-88-88-88，然后E通过ARP响应数据包的源MAC地址得到192.168.3.002对应的MAC地址。其余步骤与（c）相同。"
+        ],
+        "bbox": [
+            163,
+            647,
+            840,
+            809
+        ],
+        "page_idx": 3
+    },
+    {
+        "type": "text",
+        "text": "Chapter5 P3. Consider the following network. With the indicated link costs, use Dijkstra's shortest-path algorithm to compute the shortest path from $x$ to all network nodes. Show how the algorithm works by computing a table similar to Table 5.1. ",
+        "bbox": [
+            164,
+            114,
+            811,
+            136
+        ],
+        "page_idx": 4
+    },
+    {
+        "type": "image",
+        "img_path": "images/618e824a0ee8137212986ed7df5788ae38711d274041715e423ec4aa70c4920e.jpg",
+        "image_caption": [],
+        "image_footnote": [],
+        "bbox": [
+            176,
+            138,
+            363,
+            258
+        ],
+        "page_idx": 4
+    },
+    {
+        "type": "text",
+        "text": "参考答案",
+        "text_level": 1,
+        "bbox": [
+            173,
+            279,
+            220,
+            289
+        ],
+        "page_idx": 4
+    },
+    {
+        "type": "table",
+        "img_path": "images/a0580ecfa75d2ed1ec76953143a6b38e1a81315ecf4e6b2d08618099e6357b78.jpg",
+        "table_caption": [
+            "如下表所示："
+        ],
+        "table_footnote": [],
+        "table_body": "<table><tr><td>Step</td><td>N</td><td>D(t),p(t)</td><td>D(u),p(u)</td><td>D(v),p(v)</td><td>D(w),p(w)</td><td>D(y),p(y)</td><td>D(z),p(z)</td></tr><tr><td>0</td><td>x</td><td>∞</td><td>∞</td><td>3,x</td><td>6,x</td><td>6,x</td><td>8,x</td></tr><tr><td>1</td><td>xv</td><td>7,v</td><td>6,v</td><td></td><td>6,x</td><td>6,x</td><td>8,x</td></tr><tr><td>2</td><td>xvu</td><td>7,v</td><td></td><td></td><td>6,x</td><td>6,x</td><td>8,x</td></tr><tr><td>3</td><td>xvuw</td><td>7,v</td><td></td><td></td><td></td><td>6,x</td><td>8,x</td></tr><tr><td>4</td><td>xvuwy</td><td>7,v</td><td></td><td></td><td></td><td></td><td>8,x</td></tr><tr><td>5</td><td>xvuwyt</td><td></td><td></td><td></td><td></td><td></td><td>8,x</td></tr><tr><td>6</td><td>xvuwytz</td><td></td><td></td><td></td><td></td><td></td><td></td></tr></table>",
+        "bbox": [
+            226,
+            302,
+            673,
+            427
+        ],
+        "page_idx": 4
+    },
+    {
+        "type": "text",
+        "text": "Chapter 4 P15. Consider the topology shown in Figure 4.20. Denote the three subnets with hosts (starting clockwise at 12:00) as Network s A, B, and C. Denote the subnets without hosts as Networks D, E, and F. ",
+        "bbox": [
+            171,
+            446,
+            821,
+            467
+        ],
+        "page_idx": 4
+    },
+    {
+        "type": "list",
+        "sub_type": "text",
+        "list_items": [
+            "a. Assign network addresses to each of these six subnets, with the following constraints: All addresses must be allocated from 214.97.254/2 ",
+            "3; Subnet A should have enough addresses to support 250 interfaces; Subnet B should have enough addresses to support 120 interfaces; an ",
+            "d Subnet C should have enough addresses to support 120 interfaces. Of course, subnets D, E and F should each be able to support two interfaces. For each subnet, the assignment should take the form a.b.c.d/x or a.b.c.d/x - e.f.g.h/y. ",
+            "b. Using your answer to part (a), provide the forwarding tables (using longest prefix matching) for each of the three routers. "
+        ],
+        "bbox": [
+            173,
+            470,
+            838,
+            529
+        ],
+        "page_idx": 4
+    },
+    {
+        "type": "text",
+        "text": "参考答案",
+        "text_level": 1,
+        "bbox": [
+            176,
+            561,
+            216,
+            568
+        ],
+        "page_idx": 4
+    },
+    {
+        "type": "text",
+        "text": "a.子网A:214.97.255/24（256个地址）",
+        "bbox": [
+            221,
+            572,
+            374,
+            580
+        ],
+        "page_idx": 4
+    },
+    {
+        "type": "text",
+        "text": "子网B: 214.97.254.0/29-214.97.254.0/25 (128-8 = 120个地址) ",
+        "bbox": [
+            221,
+            583,
+            485,
+            592
+        ],
+        "page_idx": 4
+    },
+    {
+        "type": "text",
+        "text": "子网C: 214.97.254.128/25 (128个地址) ",
+        "bbox": [
+            221,
+            593,
+            386,
+            603
+        ],
+        "page_idx": 4
+    },
+    {
+        "type": "text",
+        "text": "子网D: 214.97.254.0/31 (2个地址) ",
+        "bbox": [
+            221,
+            605,
+            366,
+            614
+        ],
+        "page_idx": 4
+    },
+    {
+        "type": "text",
+        "text": "子网E: 214.97.254.2/31 (2个地址) ",
+        "bbox": [
+            221,
+            616,
+            366,
+            625
+        ],
+        "page_idx": 4
+    },
+    {
+        "type": "text",
+        "text": "子网F: 214.97.254.4/30 (4个地址) ",
+        "bbox": [
+            221,
+            627,
+            363,
+            636
+        ],
+        "page_idx": 4
+    },
+    {
+        "type": "text",
+        "text": "b.根据题意，可以认为D、E、F分别对应4.20拓扑图里的右上，下方，左上三个子网。因此A路由器可以到达子网A、D、F；B路由器可以到达子网D、B、E；C路由器可以到达子网F、E、C；使用最长匹配原则，有：",
+        "bbox": [
+            221,
+            638,
+            810,
+            657
+        ],
+        "page_idx": 4
+    },
+    {
+        "type": "text",
+        "text": "路由器R1：",
+        "bbox": [
+            221,
+            660,
+            267,
+            668
+        ],
+        "page_idx": 4
+    },
+    {
+        "type": "text",
+        "text": "11010110 01100001 11111111***** ",
+        "bbox": [
+            255,
+            671,
+            426,
+            680
+        ],
+        "page_idx": 4
+    },
+    {
+        "type": "text",
+        "text": "子网A",
+        "bbox": [
+            480,
+            671,
+            505,
+            679
+        ],
+        "page_idx": 4
+    },
+    {
+        "type": "text",
+        "text": "11010110 01100001 11111110 0000000* ",
+        "bbox": [
+            255,
+            682,
+            433,
+            691
+        ],
+        "page_idx": 4
+    },
+    {
+        "type": "text",
+        "text": "子网D",
+        "bbox": [
+            489,
+            682,
+            515,
+            691
+        ],
+        "page_idx": 4
+    },
+    {
+        "type": "text",
+        "text": "11010110 01100001 11111110 000001** ",
+        "bbox": [
+            255,
+            693,
+            433,
+            701
+        ],
+        "page_idx": 4
+    },
+    {
+        "type": "text",
+        "text": "子网F",
+        "bbox": [
+            487,
+            693,
+            512,
+            701
+        ],
+        "page_idx": 4
+    },
+    {
+        "type": "text",
+        "text": "路由器R2：",
+        "bbox": [
+            221,
+            705,
+            267,
+            713
+        ],
+        "page_idx": 4
+    },
+    {
+        "type": "text",
+        "text": "11010110 01100001 11111111 0000000* ",
+        "bbox": [
+            255,
+            716,
+            436,
+            723
+        ],
+        "page_idx": 4
+    },
+    {
+        "type": "text",
+        "text": "子网D",
+        "bbox": [
+            489,
+            716,
+            515,
+            723
+        ],
+        "page_idx": 4
+    },
+    {
+        "type": "text",
+        "text": "11010110 01100001 11111110 0**** ",
+        "bbox": [
+            255,
+            726,
+            428,
+            733
+        ],
+        "page_idx": 4
+    },
+    {
+        "type": "text",
+        "text": "子网B",
+        "bbox": [
+            485,
+            726,
+            509,
+            733
+        ],
+        "page_idx": 4
+    },
+    {
+        "type": "text",
+        "text": "11010110 01100001 11111110 0000001* ",
+        "bbox": [
+            255,
+            737,
+            436,
+            745
+        ],
+        "page_idx": 4
+    },
+    {
+        "type": "text",
+        "text": "子网B",
+        "bbox": [
+            489,
+            738,
+            524,
+            745
+        ],
+        "page_idx": 4
+    },
+    {
+        "type": "text",
+        "text": "路由器R3：",
+        "bbox": [
+            221,
+            748,
+            267,
+            756
+        ],
+        "page_idx": 4
+    },
+    {
+        "type": "text",
+        "text": "11010110 01100001 11111111 000001** ",
+        "bbox": [
+            255,
+            760,
+            436,
+            768
+        ],
+        "page_idx": 4
+    },
+    {
+        "type": "text",
+        "text": "子网F",
+        "bbox": [
+            489,
+            760,
+            515,
+            768
+        ],
+        "page_idx": 4
+    },
+    {
+        "type": "text",
+        "text": "11010110 01100001 11111110 0000001* ",
+        "bbox": [
+            255,
+            771,
+            436,
+            779
+        ],
+        "page_idx": 4
+    },
+    {
+        "type": "text",
+        "text": "子网E",
+        "bbox": [
+            489,
+            771,
+            514,
+            779
+        ],
+        "page_idx": 4
+    },
+    {
+        "type": "text",
+        "text": "11010110 01100001 11111110 1***** ",
+        "bbox": [
+            255,
+            782,
+            426,
+            790
+        ],
+        "page_idx": 4
+    },
+    {
+        "type": "text",
+        "text": "子网C",
+        "bbox": [
+            480,
+            782,
+            510,
+            790
+        ],
+        "page_idx": 4
+    },
+    {
+        "type": "text",
+        "text": "Chapter 3, P40. Consider Figure 3.61 TCP window size as a function of time. Assuming TCP Reno is the protocol experiencing the behavior shown above, answer the following questions. In all cases, you should provide a short discussion justifying your answer. ",
+        "bbox": [
+            169,
+            111,
+            821,
+            133
+        ],
+        "page_idx": 5
+    },
+    {
+        "type": "list",
+        "sub_type": "text",
+        "list_items": [
+            "a. Identify the intervals of time when TCP slow start is operating. ",
+            "b. Identify the intervals of time when TCP congestion avoidance is operating. ",
+            "c. After the 16th transmission round, is segment loss detected by a triple duplicate ACK or by a timeout? ",
+            "d. After the 22nd transmission round, is segment loss detected by a triple duplicate ACK or by a timeout? ",
+            "e. What is the initial value of ssthresh at the first transmission round? ",
+            "f. What is the value of sthresh at the 18th transmission round? ",
+            "g. What is the value of ssthresh at the 24th transmission round? ",
+            "h. During what transmission round is the 70th segment sent? ",
+            "i. Assuming a packet loss is detected after the 26th round by the receipt of a triple duplicate ACK, what will be the values of the congestion window size and of ssthresh? ",
+            "j. Suppose TCP Tahoe is used (instead of TCP Reno), and assume that triple duplicate ACKs are received at the 16th round. What are the ssthresh and the congestion window size at the 19th round? ",
+            "k. Again suppose TCP Tahoe is used, and there is a timeout event at 22nd round. How many packets have been sent out from 17th round til 122nd round, inclusive? "
+        ],
+        "bbox": [
+            169,
+            135,
+            823,
+            298
+        ],
+        "page_idx": 5
+    },
+    {
+        "type": "image",
+        "img_path": "images/dd6c8a8ffb14d7d322fc0a0211cf6b69cc2386258921e292a37bccc728b5066d.jpg",
+        "image_caption": [],
+        "image_footnote": [],
+        "bbox": [
+            231,
+            330,
+            630,
+            559
+        ],
+        "page_idx": 5
+    },
+    {
+        "type": "text",
+        "text": "a.[1,6],[23,26]; ",
+        "bbox": [
+            176,
+            589,
+            257,
+            599
+        ],
+        "page_idx": 5
+    },
+    {
+        "type": "text",
+        "text": "b.[6,16],[17,22]; ",
+        "bbox": [
+            176,
+            600,
+            262,
+            610
+        ],
+        "page_idx": 5
+    },
+    {
+        "type": "text",
+        "text": "c.三个重复（duplicate）ACK。因为收到三个重复ACK后拥塞窗口的大小降至当前窗口的一半再加3；从图上看第16轮拥塞窗口为42，第17轮拥塞窗口为24（=42/2+3）；",
+        "bbox": [
+            176,
+            611,
+            786,
+            633
+        ],
+        "page_idx": 5
+    },
+    {
+        "type": "text",
+        "text": "d. 超时。因为拥塞窗口大小被设置为 1；",
+        "bbox": [
+            176,
+            635,
+            349,
+            644
+        ],
+        "page_idx": 5
+    },
+    {
+        "type": "text",
+        "text": "e.32. 因为在第16轮，拥塞窗口的大小从指数增长转变为线性增长，即慢启动阶段（slow start）结束，进入拥塞避免(congestion avoidance)阶段。转变的条件是拥塞窗口大于拥塞阈值，16轮时拥塞窗口为32，所以拥塞阈值也是32。",
+        "bbox": [
+            176,
+            647,
+            803,
+            669
+        ],
+        "page_idx": 5
+    },
+    {
+        "type": "text",
+        "text": "f.21。第16轮时检测到3个重复ACK，拥塞阈值下降为当前拥塞窗口的一半，拥塞窗口下降为当前拥塞窗口的一半再加3，进入拥塞避免阶段。因此，第17轮开始，拥塞阈值为 $21 = (42 / 2)$ .在第16-18轮间没有发生任何能够让阈值改变的事件，因此拥塞阈值ssthresh保持为21；",
+        "bbox": [
+            176,
+            669,
+            793,
+            692
+        ],
+        "page_idx": 5
+    },
+    {
+        "type": "text",
+        "text": "g.14。当发生超时后，拥塞阈值被设置为当前拥塞窗口的一半，拥塞窗口置为1，进入慢启动阶段。第22轮发生了超时，当前拥塞窗口大小为2",
+        "bbox": [
+            176,
+            693,
+            794,
+            704
+        ],
+        "page_idx": 5
+    },
+    {
+        "type": "text",
+        "text": "9，因此拥塞阈值被置为14（=29/2），拥塞窗口置为1，进入了慢启动阶段。第24轮依然在慢启动阶段，因此拥塞阈值仍为14；",
+        "bbox": [
+            176,
+            705,
+            734,
+            714
+        ],
+        "page_idx": 5
+    },
+    {
+        "type": "text",
+        "text": "h. 第7轮。在第一轮发送中，发送分组1；在第二轮发送分组2-3；在第三轮发送分组4-7；在第四轮发送分组8-15；在第五轮发送分组16-31；在第六轮发送分组32-63；数据包64-96在第7轮传输中发送。因此，分组70在第7轮中被发送；",
+        "bbox": [
+            176,
+            717,
+            794,
+            738
+        ],
+        "page_idx": 5
+    },
+    {
+        "type": "text",
+        "text": "i. 拥塞阈值为4，拥塞窗口为7。当收到三个重复ACK时，拥塞阈值被设置为当前拥塞窗口值的一半，并且拥塞窗口被设置为当前拥塞窗口到一半再加3。第26轮时，拥塞窗口为8，因此，阈值和窗口的新值将分别为4和7，进入拥塞避免阶段。",
+        "bbox": [
+            176,
+            739,
+            796,
+            762
+        ],
+        "page_idx": 5
+    },
+    {
+        "type": "text",
+        "text": "j. 阈值为 21，拥塞窗口大小为 4。TCP Tahoe 不区分丢包的原因。不管是收到三个重复 ACK，还是超时，都把拥塞阈值设置为当前拥塞窗口的一半，拥塞窗口置为 1，进入慢启动阶段。因此在第 16 轮收到 3 个重复 ACK 后，在第 17 轮拥塞阈值会降为 21（=42/2），拥塞窗口降为 1，进入慢启动阶段。在第 19 轮时，拥塞窗口增长到 4。",
+        "bbox": [
+            176,
+            763,
+            794,
+            796
+        ],
+        "page_idx": 5
+    },
+    {
+        "type": "text",
+        "text": "k.52；第17轮到第22轮，共 $1 + 2 + 4 + 8 + 16 + 21 = 52$ 个包。从第17轮到第21轮，TCP Tahoe处于慢启动阶段，拥塞窗口从1开始指数增加。在第22轮，拥塞窗口增加到21时，和阈值相等，不再指数增加，转为线性增加，进入拥塞避免阶段。此时发生超时，拥塞窗口在下一轮（第23轮）降到1。因此在第22轮时拥塞窗口为21。",
+        "bbox": [
+            176,
+            798,
+            794,
+            832
+        ],
+        "page_idx": 5
+    },
+    {
+        "type": "text",
+        "text": "Chapter 2 P8. Referring to Problem P7, suppose the HTML file references eight very small objects on the same server. Neglecting transmission ",
+        "bbox": [
+            161,
+            87,
+            835,
+            99
+        ],
+        "page_idx": 6
+    },
+    {
+        "type": "text",
+        "text": "n times, how much time elapses with ",
+        "bbox": [
+            163,
+            100,
+            342,
+            111
+        ],
+        "page_idx": 6
+    },
+    {
+        "type": "list",
+        "sub_type": "text",
+        "list_items": [
+            "a. Non-persistent HTTP with no parallel TCP connections? ",
+            "b. Non-persistent HTTP with the browser configured for 6 parallel connections? ",
+            "c. Persistent HTTP? "
+        ],
+        "bbox": [
+            161,
+            112,
+            544,
+            147
+        ],
+        "page_idx": 6
+    },
+    {
+        "type": "text",
+        "text": "参考答案",
+        "text_level": 1,
+        "bbox": [
+            176,
+            175,
+            216,
+            184
+        ],
+        "page_idx": 6
+    },
+    {
+        "type": "text",
+        "text": "参考P7，查找到包含该IP地址使用的时间是：RTT1+...+RTTn。HTML文件和objects长度短，因此文件传输时间可以忽略不计。",
+        "bbox": [
+            220,
+            186,
+            729,
+            195
+        ],
+        "page_idx": 6
+    },
+    {
+        "type": "text",
+        "text": "a）非持续HTTP，一个TCP连接。则HTML文件和每个object都需要1个RTT建立TCP连接，和1个RTT请求文件传输。所以总时间为： $RTT_{1} + \\dots + RTT_{n} + 2RTT_{o} + 8 \\cdot 2RTT_{o} = 18RTT_{o} + RTT_{1} + \\dots + RTT_{n}$ ",
+        "bbox": [
+            220,
+            198,
+            751,
+            219
+        ],
+        "page_idx": 6
+    },
+    {
+        "type": "list",
+        "sub_type": "text",
+        "list_items": [
+            "b）非持续HTTP，同时开启6个TCP连接。则HTML文件传输到客户端后，其中所含的8个objects可以每6个一批并行传输，因此分成两批传输：第1批并行传6个objects，第2批并行传2个objects。其中HTML的传输时间为2RTTO，每批并行传输各需要2RTTO，所以总时间为： $RTT_{1} + \\dots + RTT_{n} + 2RTT_{o} + 2\\cdot 2RTT_{o} = 6RTT_{o} + RTT_{1} + \\dots + RTT_{n}$ ",
+            "c）采用并行的持久HTTP，建立TCP连接需要RTTO，请求HTML文件需要RTTO"
+        ],
+        "bbox": [
+            220,
+            223,
+            808,
+            269
+        ],
+        "page_idx": 6
+    },
+    {
+        "type": "text",
+        "text": "，请求8个objects共需要RTTO。所以",
+        "bbox": [
+            221,
+            271,
+            376,
+            280
+        ],
+        "page_idx": 6
+    },
+    {
+        "type": "equation",
+        "text": "$$\n\\text {总 时 间} = 3 R T T _ {o} + R T T _ {1} + \\dots + R T T _ {n}.\n$$",
+        "text_format": "latex",
+        "bbox": [
+            250,
+            282,
+            403,
+            294
+        ],
+        "page_idx": 6
+    },
+    {
+        "type": "text",
+        "text": "d)如果采用串行的持久HTTP，则传输HTML文件需要2RTT0，8个objects都各需要RTTO。所以，",
+        "bbox": [
+            226,
+            296,
+            616,
+            305
+        ],
+        "page_idx": 6
+    },
+    {
+        "type": "text",
+        "text": "总时间 $= RTT_{1} + \\dots +RTT_{n} + 2RTT_{o} + 8RTT_{o} = 10RTT_{o} + RTT_{1} + \\dots +RTT_{n}$ ",
+        "bbox": [
+            220,
+            307,
+            531,
+            319
+        ],
+        "page_idx": 6
+    }
+]

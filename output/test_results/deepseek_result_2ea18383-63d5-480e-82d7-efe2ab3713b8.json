@@ -1,0 +1,24 @@
+{
+  "task_id": "2ea18383-63d5-480e-82d7-efe2ab3713b8",
+  "status": "completed",
+  "result_file": "F:\\大二下学期\\杂项\\ai教育\\试卷讲解demo\\output\\processed_json\\fad9b72e-79f3-42d8-bce4-e6a5f12d1af8_content_list_cleaned.json",
+  "questions_count": 1,
+  "json_content": [
+    {
+      "title": "1",
+      "source": "",
+      "content": "【单选题】 (2分) 关于网络应用（network application）和应用层协议（network application-layer protocol），下列说法正确的是（）。\n○A. 应用层协议的性能对网络应用的性能没有影响。\nB. 应用层协议负责数据传输。\nC. 网络应用就是应用层协议，二者没有区别。\nD. 应用层协议的设计包括用户界面的设计。",
+      "answer": "",
+      "analysis": ""
+    }
+  ],
+  "data": [
+    {
+      "title": "1",
+      "source": "",
+      "content": "【单选题】 (2分) 关于网络应用（network application）和应用层协议（network application-layer protocol），下列说法正确的是（）。\n○A. 应用层协议的性能对网络应用的性能没有影响。\nB. 应用层协议负责数据传输。\nC. 网络应用就是应用层协议，二者没有区别。\nD. 应用层协议的设计包括用户界面的设计。",
+      "answer": "",
+      "analysis": ""
+    }
+  ]
+}

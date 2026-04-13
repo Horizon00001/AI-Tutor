@@ -1,0 +1,38 @@
+{
+  "task_id": "b9fec46b-6472-4374-b309-9bf934028a77",
+  "source_question": {
+    "title": "1",
+    "source": "",
+    "content": "【单选题】 (2分) 关于网络应用（network application）和应用层协议（network application-layer protocol），下列说法正确的是（）。\nA. 应用层协议的性能对网络应用的性能没有影响。\nB. 应用层协议负责数据传输。\nC. 网络应用就是应用层协议，二者没有区别。\nD. 应用层协议的设计包括用户界面的设计。",
+    "answer": "",
+    "analysis": ""
+  },
+  "similar_questions": [
+    {
+      "title": "2",
+      "content": "【单选题】 (2分) 关于网络应用（network application）和应用层协议（network application-layer protocol），以下说法正确的是（）。\nA. 应用层协议的性能直接决定了网络应用的性能。\nB. 应用层协议主要负责网络路由选择。\nC. 网络应用和应用层协议是同一概念的不同表述。\nD. 应用层协议的设计不包括用户界面的设计。",
+      "answer": "D",
+      "analysis": "应用层协议定义了网络应用进程间通信的规则，如消息格式、时序等，但不涉及用户界面设计，用户界面属于网络应用实现的一部分。A错误，协议性能会影响但非唯一决定因素；B错误，路由选择是网络层功能；C错误，网络应用是软件，应用层协议是通信规则，二者不同。",
+      "difficulty": "same",
+      "knowledge_points": []
+    },
+    {
+      "title": "3",
+      "content": "【单选题】 (2分) 针对网络应用（network application）和应用层协议（network application-layer protocol）的关系，下列描述正确的是（）。\nA. 应用层协议的性能对网络应用性能无任何影响。\nB. 应用层协议负责数据在网络中的可靠传输。\nC. 网络应用必须基于特定的应用层协议才能运行。\nD. 应用层协议的设计需要包含图形用户界面的开发。",
+      "answer": "C",
+      "analysis": "网络应用依赖于应用层协议（如HTTP、SMTP）进行通信，没有协议就无法实现网络功能。A错误，协议性能如延迟、吞吐量会影响应用体验；B错误，可靠传输主要由传输层（如TCP）负责；D错误，协议设计关注通信规则，用户界面是应用开发的内容。",
+      "difficulty": "same",
+      "knowledge_points": []
+    },
+    {
+      "title": "4",
+      "content": "【单选题】 (2分) 关于网络应用（network application）和应用层协议（network application-layer protocol）的区分，以下说法正确的是（）。\nA. 应用层协议的效率与网络应用的响应速度无关。\nB. 应用层协议处理数据包的封装和解封装。\nC. 网络应用和应用层协议在功能上完全相同。\nD. 应用层协议不涉及用户交互界面的设计。",
+      "answer": "D",
+      "analysis": "应用层协议专注于通信规则（如请求/响应格式），用户界面设计是网络应用开发的任务。A错误，协议效率会影响应用响应；B错误，数据包封装是网络层或传输层的功能；C错误，网络应用是软件实体，应用层协议是通信标准，功能不同。",
+      "difficulty": "same",
+      "knowledge_points": []
+    }
+  ],
+  "generated_count": 3,
+  "created_at": "1775981792.0"
+}

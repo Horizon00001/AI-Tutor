@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+python-multipart
+pydantic
+python-pptx
+openai
+python-dotenv
+aiofiles
+python-jose[cryptography]
+passlib[bcrypt]
+matplotlib

@@ -1,0 +1,91 @@
+[
+    {
+        "type": "text",
+        "text": "1. $A = \\{ \\mathsf { a } , \\mathsf { b } \\}$ and $B = \\{ 1 , 2 \\}$ , write down the Cartesian product of followings: ",
+        "bbox": [
+            144,
+            86,
+            746,
+            102
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "list",
+        "sub_type": "text",
+        "list_items": [
+            "(1) $A \\times \\{ 1 \\} \\times B$ ",
+            "(2) $A ^ { \\ : 2 } \\times B$ ",
+            "(3) $( B \\times A ) ^ { 2 }$ "
+        ],
+        "bbox": [
+            146,
+            105,
+            252,
+            157
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "text",
+        "text": "2. The set $A = \\{ { \\textsf { a } } , { \\mathsf { b } } \\} ,$ , write down $\\mathrm { P } ( A ) \\times A$ ",
+        "bbox": [
+            144,
+            195,
+            485,
+            212
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "text",
+        "text": "3. Using Sets and Logic Operators to Describe a System ",
+        "bbox": [
+            144,
+            252,
+            571,
+            268
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "text",
+        "text": "Referring to Question 1, Chapter 2, and its development in exercises of Chapter 3, give full descriptions in the manner of Chapter 5 for: ",
+        "bbox": [
+            144,
+            271,
+            847,
+            305
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "list",
+        "sub_type": "text",
+        "list_items": [
+            "(1) A suitable type for the response from any of the following operations. ",
+            "(2) The operation to register a new user. ",
+            "(3) The operation to remove a user’s registration. ",
+            "(4) The operation to log in. ",
+            "(5) The operation to log out. "
+        ],
+        "bbox": [
+            146,
+            309,
+            705,
+            397
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "text",
+        "text": "(references: FSUZ_Lightfoot_05 课后 Exercises) ",
+        "bbox": [
+            144,
+            419,
+            505,
+            435
+        ],
+        "page_idx": 0
+    }
+]
