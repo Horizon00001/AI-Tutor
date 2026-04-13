@@ -1,7 +1,7 @@
 from pptx import Presentation
 from pptx.util import Inches, Pt
 from pptx.dml.color import RGBColor
-from pptx.enum.text import PP_ALIGN, MSO_ANCHOR
+from pptx.enum.text import PP_ALIGN, MSO_ANCHOR, MSO_AUTO_SIZE
 from pptx.enum.shapes import MSO_SHAPE
 import json
 import os
@@ -50,7 +50,7 @@ def add_math_text(paragraph, text):
         run = paragraph.add_run()
         if i % 2 == 1: # 公式部分
             run.text = clean_latex(part)
-            run.font.name = 'Cambria Math'
+            run.font.name = 'Times New Roman'
             run.font.italic = True
         else: # 普通文本
             run.text = part
@@ -125,6 +125,7 @@ def create_question_slide(prs, question_num, content, source, answer, analysis):
     q_height = Inches(1.5) if options else Inches(4.0)
     q_box = slide.shapes.add_textbox(Inches(1.0), Inches(1.2), Inches(11.333), q_height)
     q_box.text_frame.word_wrap = True
+    q_box.text_frame.auto_size = MSO_AUTO_SIZE.TEXT_TO_FIT_SHAPE
     p = q_box.text_frame.paragraphs[0]
     add_math_text(p, question_text)
     p.font.size = Pt(22)
@@ -137,6 +138,7 @@ def create_question_slide(prs, question_num, content, source, answer, analysis):
         # 选项框缩进一点
         o_box = slide.shapes.add_textbox(Inches(1.5), Inches(2.6), Inches(10.333), Inches(1.8))
         o_box.text_frame.word_wrap = True
+        o_box.text_frame.auto_size = MSO_AUTO_SIZE.TEXT_TO_FIT_SHAPE
         
         # 按照每行两个选项进行分组：(A, B) 一行, (C, D) 一行
         for i in range(0, len(options), 2):
@@ -175,6 +177,7 @@ def create_question_slide(prs, question_num, content, source, answer, analysis):
     a_box = slide.shapes.add_textbox(Inches(1.0), a_y_pos, Inches(11.333), Inches(2.5))
     a_box.name = "AnimatedAnswerShape"
     a_box.text_frame.word_wrap = True
+    a_box.text_frame.auto_size = MSO_AUTO_SIZE.TEXT_TO_FIT_SHAPE
     
     p = a_box.text_frame.paragraphs[0]
     p.text = f"【正确答案】 {answer}"
