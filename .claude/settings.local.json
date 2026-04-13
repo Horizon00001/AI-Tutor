@@ -8,7 +8,9 @@
       "Bash(python -c \"import uvicorn; uvicorn.run\\('app:app', host='0.0.0.0', port=8080\\)\")",
       "Bash(curl -s http://localhost:8080/)",
       "Bash(curl:*)",
-      "Bash(python -c \"import sys,json; data=json.load\\(sys.stdin\\); [print\\(f'{method.upper\\(\\)} {path}'\\) for path, methods in data['paths'].items\\(\\) for method in methods.keys\\(\\)]\")"
+      "Bash(python -c \"import sys,json; data=json.load\\(sys.stdin\\); [print\\(f'{method.upper\\(\\)} {path}'\\) for path, methods in data['paths'].items\\(\\) for method in methods.keys\\(\\)]\")",
+      "Bash(npm create:*)",
+      "Bash(npm install:*)"
     ]
   }
 }

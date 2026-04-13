@@ -9,3 +9,4 @@ aiofiles
 python-jose[cryptography]
 passlib[bcrypt]
 matplotlib
+requests

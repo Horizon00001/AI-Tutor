@@ -12,3 +12,8 @@ backend/uploads/
 backend/data/*.db
 .claude/
 .trae/
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
