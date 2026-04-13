@@ -1,5 +1,6 @@
 backup/
 .backup/
+test/
 output/
 .env
 __pycache__/
