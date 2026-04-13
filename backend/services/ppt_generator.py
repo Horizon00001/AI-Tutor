@@ -378,35 +378,24 @@ class PPTGenerator:
 
         current_y = Inches(1.2)
 
-        # 题目内容 - 考虑 LaTeX
-        if has_latex_question:
-            # 使用混合内容渲染
-            segments = self.parse_latex_segments(question_text)
-            current_y = self.add_mixed_content_to_slide(
-                slide, segments,
-                x=Inches(1.0), y=current_y,
-                width=content_width, height=Inches(4.0),  # 更大的高度限制
-                font_size=q_font_size, font_bold=True
-            )
+        # 题目内容
+        q_height = self.estimate_text_height(question_text, content_width, q_font_size)
+        if options:
+            q_height = min(q_height, Inches(1.5))
         else:
-            # 普通文本 - 估算高度
-            q_height = self.estimate_text_height(question_text, content_width, q_font_size)
-            if options:
-                q_height = min(q_height, Inches(1.5))  # 有选项时限制高度
-            else:
-                q_height = min(q_height, Inches(3.5))  # 无选项时可以更高
+            q_height = min(q_height, Inches(3.5))
 
-            q_box = slide.shapes.add_textbox(Inches(1.0), current_y, content_width, q_height)
-            q_box.text_frame.word_wrap = True
-            q_box.text_frame.auto_size = MSO_AUTO_SIZE.TEXT_TO_FIT_SHAPE
-            p = q_box.text_frame.paragraphs[0]
-            self.add_math_text(p, question_text)
-            p.font.size = Pt(q_font_size)
-            p.font.bold = True
-            p.alignment = PP_ALIGN.LEFT
-            p.space_after = Pt(14)
+        q_box = slide.shapes.add_textbox(Inches(1.0), current_y, content_width, q_height)
+        q_box.text_frame.word_wrap = True
+        q_box.text_frame.auto_size = MSO_AUTO_SIZE.TEXT_TO_FIT_SHAPE
+        p = q_box.text_frame.paragraphs[0]
+        self.add_math_text(p, question_text)
+        p.font.size = Pt(q_font_size)
+        p.font.bold = True
+        p.alignment = PP_ALIGN.LEFT
+        p.space_after = Pt(14)
 
-            current_y += q_height + Inches(0.2)
+        current_y += q_height + Inches(0.2)
 
         # 选项（如果存在）
         if options:
@@ -469,46 +458,30 @@ class PPTGenerator:
 
         # 解析
         analysis_y = a_y_pos + answer_height + Inches(0.1)
-        analysis_segments = self.parse_latex_segments(analysis)
-
-        # 计算解析区域可用高度
         analysis_available_height = max_content_y - analysis_y
-
-        # 确保解析区域有足够空间
         if analysis_available_height < Inches(0.5):
-            # 空间严重不足，再次调整
             analysis_y = max_content_y - Inches(1.0)
             analysis_available_height = Inches(0.9)
 
-        if has_latex_analysis:
-            # LaTeX 解析需要更多空间
-            self.add_mixed_content_to_slide(
-                slide, [('text', '【解析】 ')] + analysis_segments,
-                x=Inches(1.0), y=analysis_y,
-                width=content_width, height=analysis_available_height,
-                font_size=a_font_size, font_bold=True
-            )
-        else:
-            # 估算解析文本高度
-            analysis_height = self.estimate_text_height('【解析】 ' + analysis, content_width, a_font_size)
-            analysis_height = min(analysis_height, analysis_available_height)
+        analysis_height = self.estimate_text_height('【解析】 ' + analysis, content_width, a_font_size)
+        analysis_height = min(analysis_height, analysis_available_height)
 
-            analysis_box = slide.shapes.add_textbox(Inches(1.0), analysis_y, content_width, analysis_height)
-            analysis_box.text_frame.word_wrap = True
-            analysis_box.text_frame.auto_size = MSO_AUTO_SIZE.TEXT_TO_FIT_SHAPE
-            p2 = analysis_box.text_frame.paragraphs[0]
+        analysis_box = slide.shapes.add_textbox(Inches(1.0), analysis_y, content_width, analysis_height)
+        analysis_box.text_frame.word_wrap = True
+        analysis_box.text_frame.auto_size = MSO_AUTO_SIZE.TEXT_TO_FIT_SHAPE
+        p2 = analysis_box.text_frame.paragraphs[0]
 
-            run = p2.add_run()
-            run.text = "【解析】 "
-            run.font.bold = True
-            run.font.size = Pt(a_font_size)
-            run.font.color.rgb = RGBColor(100, 100, 100)
+        run = p2.add_run()
+        run.text = "【解析】 "
+        run.font.bold = True
+        run.font.size = Pt(a_font_size)
+        run.font.color.rgb = RGBColor(100, 100, 100)
 
-            self.add_math_text(p2, analysis)
+        self.add_math_text(p2, analysis)
 
-            for run in p2.runs:
-                if not run.font.size:
-                    run.font.size = Pt(a_font_size)
+        for run in p2.runs:
+            if not run.font.size:
+                run.font.size = Pt(a_font_size)
 
     def add_animations_via_com(self, pptx_path: Path):
         if not HAS_WIN32COM:
