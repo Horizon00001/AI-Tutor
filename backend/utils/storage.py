@@ -2,7 +2,7 @@ import json
 import uuid
 from datetime import datetime
 from pathlib import Path
-from typing import Any, Optional
+from typing import Any, Optional, List
 from utils.config import UPLOAD_DIR, RAW_JSON_DIR, PROCESSED_JSON_DIR, PPT_DIR, SIMILAR_QUESTIONS_DIR
 
 
@@ -72,6 +72,62 @@ class Storage:
         with open(file_path, 'w', encoding='utf-8') as f:
             json.dump(data, f, ensure_ascii=False, indent=2)
         return file_path
+
+    @staticmethod
+    def get_uploaded_file(file_id: str) -> Optional[Path]:
+        """根据file_id获取上传的文件路径"""
+        if not UPLOAD_DIR.exists():
+            return None
+        for file_path in UPLOAD_DIR.iterdir():
+            if file_path.stem.startswith(file_id):
+                return file_path
+        return None
+
+    @staticmethod
+    def list_uploaded_files() -> List[dict]:
+        """列出所有上传的文件"""
+        files = []
+        if not UPLOAD_DIR.exists():
+            return files
+        for file_path in UPLOAD_DIR.iterdir():
+            if file_path.is_file():
+                stat = file_path.stat()
+                files.append({
+                    "file_id": file_path.stem.split("_")[0],
+                    "filename": "_".join(file_path.stem.split("_")[1:]),
+                    "file_size": stat.st_size,
+                    "upload_time": datetime.fromtimestamp(stat.st_mtime).isoformat()
+                })
+        return files
+
+    @staticmethod
+    def delete_uploaded_file(file_id: str) -> bool:
+        """删除上传的文件"""
+        file_path = Storage.get_uploaded_file(file_id)
+        if file_path and file_path.exists():
+            file_path.unlink()
+            return True
+        return False
+
+    @staticmethod
+    def read_json(file_path: Path) -> Optional[Any]:
+        """读取JSON文件"""
+        try:
+            if not file_path.exists():
+                return None
+            with open(file_path, 'r', encoding='utf-8') as f:
+                return json.load(f)
+        except Exception:
+            return None
+
+    @staticmethod
+    def get_raw_json(file_id: str) -> Optional[Path]:
+        """根据file_id获取原始JSON文件路径"""
+        if not RAW_JSON_DIR.exists():
+            return None
+        for file_path in RAW_JSON_DIR.rglob(f"{file_id}_content_list.json"):
+            return file_path
+        return None
 
 
 storage = Storage()

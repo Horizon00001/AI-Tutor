@@ -40,6 +40,18 @@ class FileHandler:
         return str(uuid.uuid4())
 
     @staticmethod
+    def get_file_type(filename: str) -> str:
+        """获取文件类型"""
+        ext = Path(filename).suffix.lower()
+        type_map = {
+            '.pdf': 'pdf',
+            '.png': 'image',
+            '.jpg': 'image',
+            '.jpeg': 'image',
+        }
+        return type_map.get(ext, 'unknown')
+
+    @staticmethod
     async def save_upload_file(file: UploadFile, dest_path: Path) -> bool:
         """保存上传文件"""
         try:
